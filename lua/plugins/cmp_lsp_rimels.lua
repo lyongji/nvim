@@ -4,8 +4,10 @@ return {
     keys = { { "<localleader>f", mode = "i" } },
     branch = "blink.cmp",
     config = function()
+      vim.system({ "rime_ls", "--listen", "127.0.0.1:9257" }, { detach = true })
       require("rimels").setup({
-        cmd = { vim.fn.expand("~/.local/bin/rime_ls") }, -- rime_ls 的路徑
+        cmd = vim.lsp.rpc.connect("127.0.0.1", 9257),
+        -- cmd = { vim.fn.expand("~/.local/bin/rime_ls")}, -- rime_ls 的路徑
       })
     end,
   },
