@@ -43,6 +43,9 @@ return {
       end
     end, desc = "通知历史" },
     { "<leader>un", function() Snacks.notifier.hide() end, desc = "清除所有通知" },
+    { "<leader>.", function() Snacks.scratch() end, desc = "切换临时缓冲区" }, -- 领导者键+.：打开/关闭临时缓冲区
+    { "<leader>S", function() Snacks.scratch.select() end, desc = "选择临时缓冲区" }, -- 领导者键+S：选择临时缓冲区
+    { "<leader>dps", function() Snacks.profiler.scratch() end, desc = "性能分析临时缓冲区" }, -- 领导者键+dps：打开性能分析临时缓冲区
     },
   },
 }
