@@ -7,6 +7,7 @@
 -- 不要在您自己的配置中使用 `LazyVim.safe_keymap_set`!!
 -- 请使用 `vim.keymap.set` 代替
 local map = vim.keymap.set
+map("i", "jk", "<Esc>")
 -- 更好的上下移动
 map({ "n", "x" }, "j", "v:count == 0 ? 'gj' : 'j'", { desc = "向下移动", expr = true, silent = true })
 map({ "n", "x" }, "<Down>", "v:count == 0 ? 'gj' : 'j'", { desc = "向下移动", expr = true, silent = true })

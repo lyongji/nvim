@@ -7,6 +7,11 @@
 -- Or remove existing autocmds by their group name (which is prefixed with `lazyvim_` for the defaults)
 -- e.g. vim.api.nvim_del_augroup_by_name("lazyvim_wrap_spell")
 
+-- 使用中文文档
+require("lspconfig")["lua_ls"].setup({
+  cmd = { "lua-language-server", "-E", "--locale=zh-cn" },
+})
+
 -- xmake配合 状态栏插件
 require("lualine").setup({
   sections = {
