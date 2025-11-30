@@ -1,0 +1,39 @@
+{
+  "plugins": {
+    "blink.cmp": {
+      "version": "1.0.0 - 2.0.0"
+    },
+    "gruvbox": [],
+    "heirline": {
+      "rev": "fae936a",
+      "src": "https://github.com/rebelot/heirline.nvim"
+    },
+    "heirline.nvim": [],
+    "lsp-progress": {
+      "rev": "ae52979",
+      "src": "https://github.com/linrongbin16/lsp-progress.nvim"
+    },
+    "lsp-progress.nvim": [],
+    "mason.nvim": [],
+    "mini.files": [],
+    "mini.icons": [],
+    "mini.pick": [],
+    "mini.surround": [],
+    "nvim": [],
+    "nvim-lspconfig": [],
+    "nvim-treesitter": [],
+    "rimels": {
+      "rev": "5bfa36a",
+      "src": "https://github.com/liubianshi/cmp-lsp-rimels",
+      "version": "'blink.cmp'"
+    },
+    "snacks": {
+      "rev": "fe7cfe9",
+      "src": "https://github.com/folke/snacks.nvim"
+    },
+    "which-key.nvim": {
+      "rev": "3aab214",
+      "src": "https://github.com/folke/which-key.nvim"
+    }
+  }
+}
