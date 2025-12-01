@@ -1,7 +1,7 @@
 -- blink.cmp 安装补全配置以及触发加载
 vim.pack.add({
   { src = 'https://github.com/saghen/blink.cmp',          version = vim.version.range('1.*') },
-  { src = 'https://github.com/liubianshi/cmp-lsp-rimels', version = "blink.cmp", name = "rimels", },
+  { src = 'https://github.com/liubianshi/cmp-lsp-rimels', version = "blink.cmp",             name = "rimels", },
 })
 
 -- 插入和 cmd 时加载
@@ -31,17 +31,17 @@ vim.api.nvim_create_autocmd({ "InsertEnter", "CmdlineEnter" }, {
       },
       keymap = {
         preset = "none",
-        ["<C-space>"] = { "show", "show_documentation", "hide_documentation" }, -- Ctrl+空格：显示补全菜单、显示文档、隐藏文档
+        ["<C-x>"] = { "show", "show_documentation", "hide_documentation" }, -- Ctrl+空格：显示补全菜单、显示文档、隐藏文档
         -- fallback命令将运行下一个非闪烁键盘映射(回车键的默认换行等操作需要)
-        ["<CR>"] = { "accept", "fallback" },                                    -- 回车键：接受当前选中项并执行默认操作
-        ["<S-Tab>"] = { "select_prev", "snippet_backward", "fallback" },        -- Shift+Tab：选择上一项、向后跳转代码片段
-        ["<Tab>"] = { "select_next", "snippet_forward", "fallback" },           -- Tab：选择下一项、向前跳转代码片段
+        ["<CR>"] = { "accept", "fallback" },                                -- 回车键：接受当前选中项并执行默认操作
+        ["<S-Tab>"] = { "select_prev", "snippet_backward", "fallback" },    -- Shift+Tab：选择上一项、向后跳转代码片段
+        ["<Tab>"] = { "select_next", "snippet_forward", "fallback" },       -- Tab：选择下一项、向前跳转代码片段
 
-        ["<C-b>"] = { "scroll_documentation_up", "fallback" },                  -- Ctrl+B：向上滚动文档
-        ["<C-f>"] = { "scroll_documentation_down", "fallback" },                -- Ctrl+F：向下滚动文档
+        ["<C-b>"] = { "scroll_documentation_up", "fallback" },              -- Ctrl+B：向上滚动文档
+        ["<C-f>"] = { "scroll_documentation_down", "fallback" },            -- Ctrl+F：向下滚动文档
 
-        ["<C-e>"] = { "snippet_forward", "select_next", "fallback" },           -- Ctrl+E：向前跳转代码片段、选择下一项
-        ["<C-u>"] = { "snippet_backward", "select_prev", "fallback" },          -- Ctrl+U：向后跳转代码片段、选择上一项
+        ["<C-e>"] = { "snippet_forward", "select_next", "fallback" },       -- Ctrl+E：向前跳转代码片段、选择下一项
+        ["<C-u>"] = { "snippet_backward", "select_prev", "fallback" },      -- Ctrl+U：向后跳转代码片段、选择上一项
       },
       signature = {
         enabled = true, -- 启用函数签名提示
@@ -91,4 +91,3 @@ require("rimels").setup({
 --   rime_user_dir = "~/.local/share/rime-ls", 属于此插件的配置地址
 --   shared_data_dir = "/usr/share/rime-data", 输入法方案路径
 --
-
