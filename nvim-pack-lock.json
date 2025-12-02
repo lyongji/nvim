@@ -34,6 +34,10 @@
     "which-key.nvim": {
       "rev": "3aab214",
       "src": "https://github.com/folke/which-key.nvim"
+    },
+    "xmake": {
+      "rev": "6a46d0b",
+      "src": "https://github.com/Mythos-404/xmake.nvim"
     }
   }
 }

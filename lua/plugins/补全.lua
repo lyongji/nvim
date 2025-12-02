@@ -4,6 +4,7 @@ vim.pack.add({
   { src = 'https://github.com/liubianshi/cmp-lsp-rimels', version = "blink.cmp",             name = "rimels", },
 })
 
+vim.opt.iskeyword = "_,49-57,A-Z,a-z" -- rime_ls 的配置
 -- 插入和 cmd 时加载
 vim.api.nvim_create_autocmd({ "InsertEnter", "CmdlineEnter" }, {
   group = vim.api.nvim_create_augroup("SetupCompletion", { clear = true }),
@@ -80,11 +81,14 @@ vim.api.nvim_create_autocmd({ "InsertEnter", "CmdlineEnter" }, {
   end,
 })
 
--- vim.system({ "rime_ls", "--listen", "127.0.0.1:9257" }, { detach = true })
+
+local homepath = vim.env.HOME
+-- 先添加 rime_ls 到环境变量中
+vim.system({ "rime_ls", "--listen", "127.0.0.1:9257" }, { detach = true })
 require("rimels").setup({
-  -- cmd = vim.lsp.rpc.connect("127.0.0.1", 9257),
-  cmd = { vim.fn.expand("E:\\app\\Rime\\weasel-0.17.4\\rime_ls.exe") }, -- rime_ls 的路徑
-  rime_user_dir = "C:/Users/yongji.luo/AppData/Roaming/Rime",           -- 属于此插件的配置地址
+  cmd = vim.lsp.rpc.connect("127.0.0.1", 9257),
+  -- cmd = { vim.fn.expand("E:\\app\\Rime\\weasel-0.17.4\\rime_ls.exe") }, -- rime_ls 的路徑
+  rime_user_dir = homepath .. "/AppData/Roaming/Rime", -- 属于此插件的配置地址
 })
 --keys = { start = ";f", stop = ";;", esc = ";j", undo = ";u" }, 默认快捷键
 --  cmd = { "/sbin/rime_ls" },  rime_ls 程序的路径
