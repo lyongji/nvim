@@ -29,6 +29,7 @@ require("plugins.treesitter") --读取缓存加载 语法高亮
 require("plugins.whichkey") --快捷键提示
 require("plugins.补全")
 require("plugins.状态线") --读取缓存加载
+require("plugins.xmake") --读取缓存加载
 ----------------------
 -- LSP 配置 --
 ----------------------
@@ -39,8 +40,6 @@ require("plugins.状态线") --读取缓存加载
 -- 打开此 后缀名的文件 时，会自动加载执行这个文件.
 -- 可以用来配置特定文件类型的LSP
 -- 例如，配置lua的LSP
-
-
 
 ----------------------
 -- 自动命令 --
