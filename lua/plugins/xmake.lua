@@ -1,5 +1,5 @@
 vim.pack.add({
-	{ src = "https://github.com/Mythos-404/xmake.nvim" , name = "xmake"},
+  { src = "https://github.com/Mythos-404/xmake.nvim", name = "xmake" },
 })
 -- 创建自动命令组来设置 xmake
 vim.api.nvim_create_autocmd({ "BufReadPost" }, {
@@ -12,12 +12,12 @@ vim.api.nvim_create_autocmd({ "BufReadPost" }, {
       -- 运行器配置
       runner = {
         -- 选择使用的后端
-        type = "snacks", ---@type "toggleterm"|"terminal"|"quickfix"|"snacks"
+        type = "terminal", ---@type "toggleterm"|"terminal"|"quickfix"|"snacks"
       },
       -- 执行器配置
       execute = {
         -- 选择使用的后端
-        type = "snacks", ---@type "toggleterm"|"terminal"|"quickfix"|"snacks"
+        type = "terminal", ---@type "toggleterm"|"terminal"|"quickfix"|"snacks"
       },
     })
   end,

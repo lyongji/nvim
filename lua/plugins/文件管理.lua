@@ -19,7 +19,6 @@ require('mini.files').setup({
 ----------------------
 -- 快捷键配置 --
 ----------------------
-vim.keymap.set('n', '<leader>e', ':lua MiniFiles.open()<CR>', { desc = '打开文件浏览器' })
 -- 打开 mini.files（当前文件所在目录）
 vim.keymap.set("n", "<leader>e", function()
   require("mini.files").open(vim.api.nvim_buf_get_name(0), true)

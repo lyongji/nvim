@@ -168,7 +168,7 @@ end, "在当前缓冲区中查找符号")
 
 -- [其他查找功能]
 -- 查找图标
-map("<leader>fi", Snacks.picker.icons, "查找图标")
+-- map("<leader>fi", Snacks.picker.icons, "查找图标")
 -- 在当前缓冲区中查找行
 map("<leader>fb", Snacks.picker.lines, "查找行:当前缓冲区")
 -- 查找当前缓冲区的诊断信息
@@ -220,8 +220,8 @@ end)
 
 -- [其他snacks功能]
 -- 缓冲区管理
-map("<leader>bc", Snacks.bufdelete.delete, "删除缓冲区")
-map("<leader>bC", Snacks.bufdelete.other, "删除其他缓冲区")
+map("<leader>bd", Snacks.bufdelete.delete, "删除缓冲区")
+map("<leader>bD", Snacks.bufdelete.other, "删除其他缓冲区")
 
 -- Git集成
 map("<leader>gg", function()
