@@ -21,14 +21,16 @@ require("config.lsp")
 ----------------------
 -- 立即加载
 require("plugins.主题色")
+require("plugins.光标特效")
+require("plugins.标签栏美化")
+require("plugins.图标和环绕")
 require("plugins.snacks") -- 仪表盘
 require("plugins.文件管理")
-require("plugins.图标和环绕")
 
-require("plugins.treesitter") --读取缓存加载 语法高亮
 require("plugins.whichkey") --快捷键提示
+require("plugins.剪贴板")
+require("plugins.内联诊断")
 require("plugins.补全")
-require("plugins.状态线") --读取缓存加载
 require("plugins.xmake") --读取缓存加载
 ----------------------
 -- LSP 配置 --

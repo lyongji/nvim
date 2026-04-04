@@ -1,10 +1,8 @@
 -- blink.cmp 安装补全配置以及触发加载
 vim.pack.add({
   { src = 'https://github.com/saghen/blink.cmp',          version = vim.version.range('1.*') },
-  { src = 'https://github.com/liubianshi/cmp-lsp-rimels', version = "blink.cmp",             name = "rimels", },
 })
 
-vim.opt.iskeyword = "_,49-57,A-Z,a-z" -- rime_ls 的配置
 -- 插入和 cmd 时加载
 vim.api.nvim_create_autocmd({ "InsertEnter", "CmdlineEnter" }, {
   group = vim.api.nvim_create_augroup("SetupCompletion", { clear = true }),
@@ -55,43 +53,9 @@ vim.api.nvim_create_autocmd({ "InsertEnter", "CmdlineEnter" }, {
           },
         },
       },
-      sources = {
-        providers = {
-          snippets = {
-            score_offset = 1000,              -- 代码片段优先级偏移量
-            should_show_items = function(ctx) -- 避免在 . " ' 字符后触发代码片段
-              return ctx.trigger.initial_kind ~= "trigger_character"
-            end,
-          },
-          lsp = {
-            transform_items = function(_, items)
-              -- the default transformer will do this
-              for _, item in ipairs(items) do
-                if item.kind == require("blink.cmp.types").CompletionItemKind.Snippet then
-                  item.score_offset = item.score_offset - 3
-                end
-              end
-              -- you can define your own filter for rime item
-              return items
-            end,
-          },
-        },
-      },
+      sources = {default = { "lsp", "path", "snippets", "buffer" }      },
     })
   end,
 })
 
 
-local homepath = vim.env.HOME
--- 先添加 rime_ls 到环境变量中
-vim.system({ "rime_ls", "--listen", "127.0.0.1:9257" }, { detach = true })
-require("rimels").setup({
-  cmd = vim.lsp.rpc.connect("127.0.0.1", 9257),
-  -- cmd = { vim.fn.expand("E:\\app\\Rime\\weasel-0.17.4\\rime_ls.exe") }, -- rime_ls 的路徑
-  rime_user_dir = homepath .. "/AppData/Roaming/Rime", -- 属于此插件的配置地址
-})
---keys = { start = ";f", stop = ";;", esc = ";j", undo = ";u" }, 默认快捷键
---  cmd = { "/sbin/rime_ls" },  rime_ls 程序的路径
---   rime_user_dir = "~/.local/share/rime-ls", 属于此插件的配置地址
---   shared_data_dir = "/usr/share/rime-data", 输入法方案路径
---

@@ -1,101 +1,61 @@
--- 通用 Neovim 设置 --
-----------------------
-vim.opt.spelllang = "utf-8"
-vim.opt.spelllang = { "en", "cjk" }             -- 拼写检查 中文 英文
-vim.opt.linebreak = false                       -- 更适合中文换行
-vim.g.mapleader = ' '                           -- 设置 leader 键为空格
 
--- 设置全局变量
-vim.g.mapleader = ' '           -- 设置全局前缀键为空格
-vim.g.maplocalleader = ' '      -- 设置本地前缀键为空格
-vim.g.have_nerd_font = true     -- 启用 Nerd Font 支持
-vim.g.markdown_folding = 1      -- 启用 Markdown 折叠
-vim.g.simple_indicator_on = false -- 关闭简单指示器
-
--- 设置窗口边框样式
-vim.o.winborder = 'single'
-
--- 缩进设置
-vim.o.expandtab = true          -- 将 Tab 转换为空格
-vim.o.tabstop = 2               -- Tab 宽度为 4 个空格
-vim.o.shiftwidth = 2            -- 自动缩进宽度为 4 个空格
-
--- [[ 设置选项 ]]
--- 查看 `:help vim.opt`
--- 更多选项请查看 `:help option-list`
-
--- 启用真彩色支持
-vim.opt.termguicolors = true
-
--- 设置行号显示
-vim.opt.relativenumber = true   -- 显示相对行号
-vim.opt.number = true           -- 显示绝对行号
-vim.opt.signcolumn = 'yes'      -- 始终显示标记列
-vim.opt.numberwidth = 4         -- 行号列宽度为 4 个字符
-
--- 启用软换行
-vim.opt.wrap = true
-
--- 设置状态行显示模式（全局状态行）
-vim.opt.laststatus = 3
-
--- 启用鼠标支持（可用于调整分割窗口大小等）
-vim.opt.mouse = 'a'
-
--- 不显示模式指示器（因为已经在状态行中显示）
-vim.opt.showmode = false
-
--- 同步系统剪贴板和 Neovim 剪贴板
--- 在 `UiEnter` 事件后设置以提升启动速度
--- 如果希望系统剪贴板保持独立，请移除此选项
--- 查看 `:help 'clipboard'`
-vim.schedule(function()
-  vim.opt.clipboard = 'unnamedplus'
-end)
-
--- 启用断行缩进
-vim.opt.breakindent = true
-
--- 保存撤销历史
-vim.opt.undofile = true
-
--- 搜索设置
-vim.opt.ignorecase = true       -- 忽略大小写
-vim.opt.smartcase = true        -- 如果包含大写字母则区分大小写
-
--- 默认保持标记列开启
-vim.opt.signcolumn = 'auto'
-
--- 减少更新延迟时间
-vim.opt.updatetime = 250
-
--- 禁用映射序列等待超时
-vim.o.timeout = false
-
--- 设置 which-key 弹出延迟时间
-vim.opt.timeoutlen = 300
-
--- 配置新分割窗口的打开方式
-vim.opt.splitright = true       -- 垂直分割时在右侧打开
-vim.opt.splitbelow = true       -- 水平分割时在下方打开
-
--- 设置 Neovim 如何显示空白字符
--- 查看 `:help 'list'` 和 `:help 'listchars'`
-vim.opt.list = true
-vim.opt.listchars = { 
-  tab = '» ',     -- Tab 显示为 » 
-  trail = '·',    -- 行尾空格显示为 ·
-  nbsp = '␣'      -- 不换行空格显示为 ␣
+-- =====================================-- ============================================================================
+-- Neovim 选项（编辑体验优化）
+-- ============================================================================
+-- 显示与界面
+vim.opt.number = true          -- 绝对行号
+vim.opt.relativenumber = true  -- 相对行号
+vim.opt.cursorline = true      -- 高亮当前行
+vim.opt.signcolumn = "yes"     -- 始终显示符号列
+vim.opt.ruler = true           -- 状态栏显示光标位置
+vim.opt.laststatus = 3         -- 全局状态栏
+vim.opt.termguicolors = true   -- 启用真彩色
+vim.opt.showmode = false       -- 不显示模式提示（--INSERT--）
+vim.opt.colorcolumn = "80"     -- 第80列高亮
+vim.opt.list = true            -- 显示不可见字符
+vim.opt.listchars = {
+  tab = '» ',
+  trail = '·',
+  nbsp = '␣'
 }
 
--- 实时预览替换效果
-vim.opt.inccommand = 'split'
+-- 行为与交互
+vim.opt.confirm = true         -- 退出前确认未保存修改
+vim.opt.undofile = true        -- 持久化撤销
+vim.opt.undolevels = 1000000   -- 最大撤销历史
+vim.opt.mouse = "a"            -- 启用鼠标
+vim.opt.wrap = false           -- 关闭自动换行
+vim.opt.linebreak = false
+vim.opt.scrolloff = 4          -- 光标上下保留4行
+vim.opt.sidescrolloff = 8      -- 光标左右保留8列
+vim.opt.winminwidth = 5        -- 最小窗口宽度
+vim.opt.splitbelow = true      -- 水平拆分新窗口在下
+vim.opt.splitright = true      -- 垂直拆分新窗口在右
+vim.opt.splitkeep = "screen"   -- 拆分时保留窗口布局
+vim.opt.virtualedit = "block"  -- 可视块模式允许移到行尾外
+vim.opt.wildmode = "longest:full,full"
+vim.opt.jumpoptions = "view"
+vim.opt.foldmethod = "indent"
+vim.opt.foldlevel = 99
+vim.opt.foldtext = "v:lua.vim.fn.getline(v:foldstart) .. ' …'"
 
--- 高亮当前行
-vim.opt.cursorline = true
+-- 缩进与格式
+vim.opt.expandtab = true       -- 空格替代制表符
+vim.opt.shiftwidth = 2
+vim.opt.tabstop = 2
+vim.opt.shiftround = true
+vim.opt.smartindent = true
+vim.opt.formatoptions = "jcroqlnt"
 
--- 光标上下保留的最小屏幕行数
-vim.opt.scrolloff = 5
+-- 搜索与替换
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+vim.opt.inccommand = "nosplit"
+vim.opt.grepprg = "rg --vimgrep"
+vim.opt.grepformat = "%f:%l:%c:%m"
+
+-- 语言与拼写
+vim.opt.spelllang = { "en", "cjk" }
 
 -- 大文件大小限制设置
 vim.g.bigfile_size = 1024 * 1024 * 1.5 -- 1.5 MB

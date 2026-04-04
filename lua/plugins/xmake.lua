@@ -7,18 +7,7 @@ vim.api.nvim_create_autocmd({ "BufReadPost" }, {
   pattern = "xmake.lua",
   once = true,
   callback = function()
-    require("xmake").setup({
-      lsp = { language = "zh-cn" },
-      -- 运行器配置
-      runner = {
-        -- 选择使用的后端
-        type = "terminal", ---@type "toggleterm"|"terminal"|"quickfix"|"snacks"
-      },
-      -- 执行器配置
-      execute = {
-        -- 选择使用的后端
-        type = "terminal", ---@type "toggleterm"|"terminal"|"quickfix"|"snacks"
-      },
+    require("xmake").setup({lsp = { language = "zh-cn" },
     })
   end,
 })
