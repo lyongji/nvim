@@ -98,8 +98,8 @@ local diagnostic_goto = function(next, severity)
   end
 end
 map("n", "<leader>cd", vim.diagnostic.open_float, { desc = "显示光标诊断" })
-map("n", "]d", diagnostic_goto(true), { desc = "下一个诊断" })
-map("n", "[d", diagnostic_goto(false), { desc = "上一个诊断" })
+-- map("n", "]d", diagnostic_goto(true), { desc = "下一个诊断" })
+-- map("n", "[d", diagnostic_goto(false), { desc = "上一个诊断" })
 map("n", "]e", diagnostic_goto(true, "ERROR"), { desc = "下一个错误" })
 map("n", "[e", diagnostic_goto(false, "ERROR"), { desc = "上一个错误" })
 map("n", "]w", diagnostic_goto(true, "WARN"), { desc = "下一个警告" })

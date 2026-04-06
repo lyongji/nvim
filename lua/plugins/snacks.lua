@@ -78,7 +78,7 @@ require("snacks").setup({
 
   -- 缩进指南配置
   indent = {
-    enabled = false,
+    enabled = true,
     indent = { enabled = false },
     animate = { duration = { step = 10, duration = 100 } },
     scope = {
@@ -112,7 +112,7 @@ map("<leader>fo", Snacks.picker.recent, "查找最近文件")
 map("<leader>fw", Snacks.picker.grep, "查找文件内容")
 -- 在帮助中查找（下拉布局）
 map("<leader>fh", function()
-  Snacks.picker.help({ layout = "dropdown" })
+  nacks.picker.help({ layout = "dropdown" })
 end, "帮助中查找")
 -- 查找选择器布局
 map("<leader>fl", Snacks.picker.picker_layouts, "查找选择器布局")
@@ -211,17 +211,17 @@ map("<leader>ft", function()
       layout = "select",
     })
   end
-end, "Find todo")
+end, "查找Todo")
 
 -- 自定义查找：查找包含"FCN="的行
 map("<leader>fF", function()
   Snacks.picker.lines({ search = "FCN=" })
-end)
+end,"自定义查找")
 
 -- [其他snacks功能]
 -- 缓冲区管理
-map("<leader>bd", Snacks.bufdelete.delete, "删除缓冲区")
-map("<leader>bD", Snacks.bufdelete.other, "删除其他缓冲区")
+-- map("<leader>bd", Snacks.bufdelete.delete, "删除缓冲区")
+-- map("<leader>bD", Snacks.bufdelete.other, "删除其他缓冲区")
 
 -- Git集成
 map("<leader>gg", function()
