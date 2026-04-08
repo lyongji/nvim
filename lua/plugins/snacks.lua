@@ -78,7 +78,7 @@ require("snacks").setup({
 
   -- 缩进指南配置
   indent = {
-    enabled = false,
+    enabled = true,
     indent = { enabled = false },
     animate = { duration = { step = 10, duration = 100 } },
     scope = {
@@ -133,7 +133,7 @@ end, "查找通知")
 
 -- [LSP相关快捷键]
 -- 查找LSP引用
-map("grr", Snacks.picker.lsp_references, "Find lsp references")
+map("grr", Snacks.picker.lsp_references, "查找LSP引用")
 -- 查找工作区符号
 map("<leader>fS", Snacks.picker.lsp_workspace_symbols, "Find workspace symbol")
 -- 查找当前缓冲区符号（智能选择LSP或Treesitter）
@@ -216,12 +216,13 @@ end, "Find todo")
 -- 自定义查找：查找包含"FCN="的行
 map("<leader>fF", function()
   Snacks.picker.lines({ search = "FCN=" })
-end)
+end,"自定义查找")
+
 
 -- [其他snacks功能]
 -- 缓冲区管理
-map("<leader>bd", Snacks.bufdelete.delete, "删除缓冲区")
-map("<leader>bD", Snacks.bufdelete.other, "删除其他缓冲区")
+-- map("<leader>bd", Snacks.bufdelete.delete, "删除缓冲区")
+-- map("<leader>bD", Snacks.bufdelete.other, "删除其他缓冲区")
 
 -- Git集成
 map("<leader>gg", function()
@@ -234,7 +235,7 @@ map("<leader>n", Snacks.notifier.show_history, "通知历史记录")
 map("<leader>N", Snacks.notifier.hide, "通知历史记录")
 
 -- 图像显示
-map("<leader>K", Snacks.image.hover, "悬停时显示图像")
+map("<leader>ki", Snacks.image.hover, "悬停时显示图像")
 
 -- 打开/切换终端
 map("<leader>tt", Snacks.terminal.open, "默认终端")

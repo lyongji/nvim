@@ -27,7 +27,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
     if ev.operator == "y" and ev.regname == "" then
       vim.fn.setreg("+", ev.regcontents, ev.regtype)
     end
-    vim.highlight.on_yank({ timeout = 500 })
+    vim.highlight.on_yank({ timeout = 500 }) -- 高亮显示复制的文本
   end,
 })
 
