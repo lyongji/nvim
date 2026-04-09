@@ -15,7 +15,6 @@ require("config.配置项")
 require("config.快捷键")
 require("config.预指令")
 require("config.lsp")
-
 ----------------------
 -- 插件管理（vim.pack） --
 ----------------------
@@ -25,7 +24,8 @@ require("plugins.光标特效")
 require("plugins.标签栏美化")
 require("plugins.图标和环绕")
 require("plugins.snacks") -- 仪表盘
-require("plugins.文件管理")
+-- require("plugins.文件管理")
+require("plugins.文件管理yazi")
 
 require("plugins.whichkey") --快捷键提示
 require("plugins.剪贴板")
