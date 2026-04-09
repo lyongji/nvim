@@ -1,16 +1,16 @@
 vim.pack.add({
   { src = "https://github.com/Mythos-404/xmake.nvim", name = "xmake" },
 })
--- 创建自动命令组来设置 xmake
-vim.api.nvim_create_autocmd({ "BufReadPost" }, {
-  group = vim.api.nvim_create_augroup("XmakeLoad", { clear = true }),
-  pattern = "xmake.lua",
-  once = true,
-  callback = function()
+-- -- 创建自动命令组来设置 xmake
+-- vim.api.nvim_create_autocmd({ "BufReadPost" }, {
+--   group = vim.api.nvim_create_augroup("XmakeLoad", { clear = true }),
+--   pattern = "xmake.lua",
+--   once = true,
+--   callback = function()
     require("xmake").setup({lsp = { language = "zh-cn" },
     })
-  end,
-})
+--   end,
+-- })
 
 -- 禁用 xmake.lua 的格式化功能
 vim.api.nvim_create_autocmd("FileType", {
