@@ -154,10 +154,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
 -- noselect: 不自动选择第一个匹配项
 -- popup: 使用弹出窗口显示补全信息
 
-
--- LSP 诊断显示配置
-vim.diagnostic.config({ virtual_text = true }) -- 行内文本提示
-
 -- LSP 快捷键
 vim.keymap.set('n', 'gs', vim.lsp.buf.declaration, { desc = '跳转到声明' })
 vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, { desc = '跳转到实现' })
@@ -165,10 +161,3 @@ vim.keymap.set('n', 'gr', vim.lsp.buf.references, { desc = '查找引用' })
 vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, { desc = '重命名符号' })
 vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, { desc = '代码操作' })
 
--- 快速跳转诊断
-vim.keymap.set('n', '[d', function()
-  vim.diagnostic.jump({ wrap = true, count = -1 })
-end, { desc = '上一个诊断' })
-vim.keymap.set('n', ']d', function()
-  vim.diagnostic.jump({ wrap = true, count = 1 })
-end, { desc = '下一个诊断' })

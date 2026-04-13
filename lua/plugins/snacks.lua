@@ -112,7 +112,7 @@ map("<leader>fo", Snacks.picker.recent, "查找最近文件")
 map("<leader>fw", Snacks.picker.grep, "查找文件内容")
 -- 在帮助中查找（下拉布局）
 map("<leader>fh", function()
-  nacks.picker.help({ layout = "dropdown" })
+  Snacks.picker.help({ layout = "dropdown" })
 end, "帮助中查找")
 -- 查找选择器布局
 map("<leader>fl", Snacks.picker.picker_layouts, "查找选择器布局")
@@ -133,7 +133,7 @@ end, "查找通知")
 
 -- [LSP相关快捷键]
 -- 查找LSP引用
-map("grr", Snacks.picker.lsp_references, "Find lsp references")
+map("grr", Snacks.picker.lsp_references, "查找LSP引用")
 -- 查找工作区符号
 map("<leader>fS", Snacks.picker.lsp_workspace_symbols, "Find workspace symbol")
 -- 查找当前缓冲区符号（智能选择LSP或Treesitter）
@@ -211,12 +211,13 @@ map("<leader>ft", function()
       layout = "select",
     })
   end
-end, "查找Todo")
+end, "Find todo")
 
 -- 自定义查找：查找包含"FCN="的行
 map("<leader>fF", function()
   Snacks.picker.lines({ search = "FCN=" })
 end,"自定义查找")
+
 
 -- [其他snacks功能]
 -- 缓冲区管理
@@ -234,7 +235,7 @@ map("<leader>n", Snacks.notifier.show_history, "通知历史记录")
 map("<leader>N", Snacks.notifier.hide, "通知历史记录")
 
 -- 图像显示
-map("<leader>K", Snacks.image.hover, "悬停时显示图像")
+map("<leader>ki", Snacks.image.hover, "悬停时显示图像")
 
 -- 打开/切换终端
 map("<leader>tt", Snacks.terminal.open, "默认终端")

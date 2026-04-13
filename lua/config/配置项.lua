@@ -2,6 +2,13 @@
 -- =====================================-- ============================================================================
 -- Neovim 选项（编辑体验优化）
 -- ============================================================================
+-- 设置 Shell 程序
+vim.o.shell = "pwsh"
+vim.opt.shellcmdflag = "-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.UTF8Encoding]::new();"
+vim.opt.shellredir = '2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode'
+vim.opt.shellpipe = '2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode'
+vim.opt.shellquote = ''
+vim.opt.shellxquote = ''
 -- 显示与界面
 vim.opt.number = true          -- 绝对行号
 vim.opt.relativenumber = true  -- 相对行号
@@ -35,7 +42,7 @@ vim.opt.splitkeep = "screen"   -- 拆分时保留窗口布局
 vim.opt.virtualedit = "block"  -- 可视块模式允许移到行尾外
 vim.opt.wildmode = "longest:full,full"
 vim.opt.jumpoptions = "view"
-vim.opt.foldmethod = "indent"
+-- vim.opt.foldmethod = "indent"  -- 使用缩进折叠 lsp中实现了
 vim.opt.foldlevel = 99
 vim.opt.foldtext = "v:lua.vim.fn.getline(v:foldstart) .. ' …'"
 
