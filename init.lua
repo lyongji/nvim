@@ -1,12 +1,6 @@
 --[[
-Neovim 配置示例
-注意事项：
-1. 完整使用 mini.pick 需要安装 ripgrep，否则只能使用 git 查找。
-   Windows 可通过 winget 安装：
      winget install BurntSushi.ripgrep.MSVC
-   使用查找其他版本使用
      winget search ripgrep
-2. 本配置使用 Neovim 0.12 内置 API（vim.pack）进行插件管理。
 --]]
 ----------------------
 -- 通用 Neovim 设置 --
@@ -24,7 +18,6 @@ require("plugins.光标特效")
 require("plugins.标签栏美化")
 require("plugins.图标和环绕")
 require("plugins.snacks") -- 仪表盘
--- require("plugins.文件管理")
 require("plugins.文件管理yazi")
 
 require("plugins.whichkey") --快捷键提示
@@ -43,6 +36,3 @@ require("plugins.xmake") --读取缓存加载
 -- 可以用来配置特定文件类型的LSP
 -- 例如，配置lua的LSP
 
-----------------------
--- 自动命令 --
-----------------------

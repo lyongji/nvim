@@ -46,6 +46,6 @@ return {
       format = { enable = true }, -- 启用格式化
     },
   },
-  cmd = { 'lua-language-server' }, -- 启动命令
+  cmd = {"lua-language-server", "-E", "--locale=zh-cn"}, -- 启动命令
   filetypes = { 'lua' },
 }
