@@ -1,12 +1,11 @@
 vim.pack.add({
-  { src = 'https://github.com/nvim-lua/plenary.nvim' },  -- yazi.nvim 依赖
-  { src = 'https://github.com/mikavilpas/yazi.nvim' }, -- 文件浏览器
+  { src = 'https://github.com/nvim-lua/plenary.nvim' }, -- yazi.nvim 依赖
+  { src = 'https://github.com/mikavilpas/yazi.nvim' },  -- 文件浏览器
 })
 
 ----------------------
 -- 插件配置 --
 ----------------------
-vim.g.loaded_netrwPlugin = 1
 
 -- Yazi 配置
 vim.g.loaded_netrwPlugin = 1
@@ -28,4 +27,3 @@ vim.keymap.set("n", "<leader>e", function()
   local yazi = require("yazi")
   yazi.yazi()
 end, { desc = "打开文件浏览器" })
-
