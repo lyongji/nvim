@@ -24,11 +24,11 @@ vim.opt.listchars = { -- 不可见字符的显示样式
   nbsp = '␣' -- 不间断空格显示为 ␣
 }
 -- 状态栏与命令行
-vim.opt.laststatus = 0   -- 完全隐藏状态栏
-vim.opt.showmode = false -- 不显示 --INSERT-- 等模式提示
-vim.opt.showcmd = false  -- 不显示正在输入的命令（解决 jk 闪烁）
-vim.opt.cmdheight = 1    -- 命令行高度为0，彻底隐藏底部那行
-vim.opt.ruler = false    -- 不显示光标位置信息
+vim.opt.laststatus = 3   -- 完全隐藏状态栏
+-- vim.opt.showmode = false -- 不显示 --INSERT-- 等模式提示
+-- vim.opt.showcmd = false  -- 不显示正在输入的命令（解决 jk 闪烁）
+-- vim.opt.cmdheight = 1    -- 命令行高度为0，彻底隐藏底部那行
+-- vim.opt.ruler = false    -- 不显示光标位置信息
 
 -- 行为与交互
 vim.opt.confirm = true                 -- 退出前确认未保存修改

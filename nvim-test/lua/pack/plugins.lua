@@ -36,9 +36,9 @@ local specs = {
   --  顶部标签栏.lua
   'https://github.com/akinsho/bufferline.nvim',
   -- lualine.lua 底部状态栏
-  -- "https://github.com/nvim-lualine/lualine.nvim",
-  -- outline.lua 大纲、函数变量结构
-  -- "https://github.com/hedyhli/outline.nvim",
+  "https://github.com/nvim-lualine/lualine.nvim",
+  -- 代码大纲视图.lua 大纲、函数变量结构
+  "https://github.com/hedyhli/outline.nvim",
   -- noice.lua 取代消息、命令行和弹出菜单的 UI
   -- "https://github.com/folke/noice.nvim",
   -- "https://github.com/MunifTanjim/nui.nvim",
