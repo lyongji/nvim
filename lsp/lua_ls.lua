@@ -38,7 +38,7 @@ return {
   end,
   settings = {
     Lua = {
-     diagnostics = { globals = { 'vim' } },                                 -- 忽略全局变量 vim 的警告
+      diagnostics = { globals = { 'vim' } }, -- 忽略全局变量 vim 的警告
       workspace = {
         library = vim.api.nvim_get_runtime_file('', true),
         checkThirdParty = false,
@@ -46,6 +46,6 @@ return {
       format = { enable = true }, -- 启用格式化
     },
   },
-  cmd = {"lua-language-server", "-E", "--locale=zh-cn"}, -- 启动命令
+  cmd = { "lua-language-server", "-E", "--locale=zh-cn" }, -- 启动命令
   filetypes = { 'lua' },
 }

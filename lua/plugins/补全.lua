@@ -1,6 +1,6 @@
 -- blink.cmp 安装补全配置以及触发加载
 vim.pack.add({
-  { src = 'https://github.com/saghen/blink.cmp',          version = vim.version.range('1.*') },
+  { src = 'https://github.com/saghen/blink.cmp', version = vim.version.range('1.*') },
 })
 
 -- 插入和 cmd 时加载
@@ -53,9 +53,7 @@ vim.api.nvim_create_autocmd({ "InsertEnter", "CmdlineEnter" }, {
           },
         },
       },
-      sources = {default = { "lsp", "path", "snippets", "buffer" }      },
+      sources = { default = { "lsp", "path", "snippets", "buffer" } },
     })
   end,
 })
-
-

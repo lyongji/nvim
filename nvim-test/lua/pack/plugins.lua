@@ -3,51 +3,47 @@
 -- ==============================================================
 local specs = {
   -- 公共依赖
-  'https://github.com/nvim-lua/plenary.nvim', -- lua函数库
-  -- 'https://github.com/williamboman/mason.nvim',
-  -- 'https://github.com/mason-org/mason-registry',
-  'https://github.com/nvim-tree/nvim-web-devicons', -- 图标库
+  "https://github.com/nvim-lua/plenary.nvim", -- lua函数库
+  "https://github.com/williamboman/mason.nvim",
+  "https://github.com/mason-org/mason-registry",
+  "https://github.com/nvim-tree/nvim-web-devicons", -- 图标库
   -- 主题色.lua
-  'https://github.com/Mofiqul/dracula.nvim',
+  "https://github.com/Mofiqul/dracula.nvim",
   -- 光标特效.lua
-  'https://github.com/sphamba/smear-cursor.nvim',
+  "https://github.com/sphamba/smear-cursor.nvim",
   -- 剪贴板.lua
-  'https://github.com/gbprod/yanky.nvim',
-  -- blinkcmp.lua 自动补全、代码片段
-  -- 'https://github.com/saghen/blink.cmp',
-  -- 'https://github.com/rafamadriz/friendly-snippets',
-  -- lspconfig.lua
-  -- 'https://github.com/neovim/nvim-lspconfig',
-  -- 'https://github.com/williamboman/mason-lspconfig.nvim',
-  -- 'https://github.com/MysticalDevil/inlay-hints.nvim',
+  "https://github.com/gbprod/yanky.nvim",
+  -- 补全.lua 自动补全、代码片段
+  "https://github.com/saghen/blink.cmp",
+  "https://github.com/rafamadriz/friendly-snippets",
+  -- lsp.lua 语言服务器
+  "https://github.com/neovim/nvim-lspconfig",
+  "https://github.com/williamboman/mason-lspconfig.nvim",
+  "https://github.com/MysticalDevil/inlay-hints.nvim", -- 内联提示增强
   -- 内联诊断
   "https://github.com/rachartier/tiny-inline-diagnostic.nvim",
-  -- conform.lua 格式化工具formatter
-  -- "https://github.com/stevearc/conform.nvim",
-  -- treesitter.lua 需要安装tree-sitter-cli工具包
-  -- 'https://github.com/nvim-treesitter/nvim-treesitter',
+  -- 代码格式化.lua 格式化工具formatter
+  "https://github.com/stevearc/conform.nvim",
   -- 彩虹缩进.lua
   "https://github.com/lukas-reineke/indent-blankline.nvim",
-  -- ufo.lua 折叠插件
-  -- "https://github.com/kevinhwang91/nvim-ufo",
-  -- "https://github.com/kevinhwang91/promise-async",
-  -- stickscroll.lua 代码函数名称浏览时固定
-  -- "https://github.com/nvim-treesitter/nvim-treesitter-context",
+  -- 代码折叠.lua 折叠插件
+  "https://github.com/kevinhwang91/nvim-ufo",
+  "https://github.com/kevinhwang91/promise-async", -- 异步执行
   --  顶部标签栏.lua
-  'https://github.com/akinsho/bufferline.nvim',
+  "https://github.com/akinsho/bufferline.nvim",
   -- lualine.lua 底部状态栏
   "https://github.com/nvim-lualine/lualine.nvim",
   -- 代码大纲视图.lua 大纲、函数变量结构
   "https://github.com/hedyhli/outline.nvim",
-  -- noice.lua 取代消息、命令行和弹出菜单的 UI
-  -- "https://github.com/folke/noice.nvim",
-  -- "https://github.com/MunifTanjim/nui.nvim",
+  -- 弹窗.lua 取代消息、命令行和弹出菜单的 UI
+  "https://github.com/folke/noice.nvim",
+  "https://github.com/MunifTanjim/nui.nvim",
   -- snacks.lua 图片预览、lazygit、lsp_references模糊查找
   -- "https://github.com/folke/snacks.nvim",
   -- 环绕.lua 各种对字符的surround包裹{} [] ''
   "https://github.com/nvim-mini/mini.surround",
-  -- autopairs.lua 对字符自动补全另一半
-  -- "https://github.com/windwp/nvim-autopairs",
+  -- 括号自动配对.lua 对字符自动补全另一半
+  "https://github.com/windwp/nvim-autopairs",
   -- tv.lua 模糊查找television
   -- "https://github.com/alexpasmantier/tv.nvim",
   -- peek.lua 预览markdown
@@ -55,7 +51,7 @@ local specs = {
   -- xmake.lua
   { src = "https://github.com/Mythos-404/xmake.nvim", name = "xmake" },
   -- yazi.lua 文件管理器
-  'https://github.com/mikavilpas/yazi.nvim',
+  "https://github.com/mikavilpas/yazi.nvim",
   -- 查看可用键位
   "https://github.com/folke/which-key.nvim",
 }
@@ -131,8 +127,7 @@ _G.PackUtils = {
 -- 例如 "https://github.com/user/repo.git" → "repo"
 function PackUtils.get_name(spec)
   local url = type(spec) == "table" and spec.src or spec
-  return type(spec) == "table" and spec.name
-      or url:match("([^\\/]+)$"):gsub("%.git$", "")
+  return type(spec) == "table" and spec.name or url:match("([^\\/]+)$"):gsub("%.git$", "")
 end
 
 -- [同步清理]
@@ -197,7 +192,9 @@ function PackUtils.get_root(name)
   name = PackUtils.get_name(name)
   -- 优先从运行时文件列表中查找
   local paths = vim.api.nvim_get_runtime_file("pack/*/*/" .. name, true)
-  if #paths > 0 then return paths[1] end
+  if #paths > 0 then
+    return paths[1]
+  end
   -- 备选：通过 globpath 在 packpath 中搜索
   local glob = vim.fn.globpath(vim.o.packpath, "pack/*/*/" .. name, 0, 1)
   return glob[1] or nil
@@ -212,12 +209,18 @@ end
 function PackUtils.run_build(name, build_cmd)
   name = PackUtils.get_name(name)
   -- 禁用的插件不执行构建
-  if PackUtils.disabled_plugins[name] then return end
+  if PackUtils.disabled_plugins[name] then
+    return
+  end
   -- 没有构建命令或正在构建中，直接返回
-  if not build_cmd or PackUtils.is_building[name] then return end
+  if not build_cmd or PackUtils.is_building[name] then
+    return
+  end
 
   local path = PackUtils.get_root(name)
-  if not path then return end
+  if not path then
+    return
+  end
 
   -- 构建完成标记文件，用于判断是否需要重新构建
   local stamp = path .. "/.build_done"
@@ -246,7 +249,9 @@ function PackUtils.run_build(name, build_cmd)
       if ok then
         -- 写入完成标记文件
         local f = io.open(stamp, "w")
-        if f then f:close() end
+        if f then
+          f:close()
+        end
         vim.notify("✅ " .. name .. " 设置成功。", vim.log.levels.INFO)
       else
         vim.notify("❌ " .. name .. " 设置失败: " .. tostring(err), vim.log.levels.ERROR)
@@ -274,13 +279,18 @@ function PackUtils.run_build(name, build_cmd)
       if out.code == 0 then
         -- 构建成功，写入完成标记文件
         local f = io.open(stamp, "w")
-        if f then f:close() end
+        if f then
+          f:close()
+        end
         vim.schedule(function()
           vim.notify("✅ " .. name .. " 构建成功。", vim.log.levels.INFO)
         end)
       else
         vim.schedule(function()
-          vim.notify("❌ " .. name .. " 构建失败: " .. (out.stderr or "未知错误"), vim.log.levels.ERROR)
+          vim.notify(
+            "❌ " .. name .. " 构建失败: " .. (out.stderr or "未知错误"),
+            vim.log.levels.ERROR
+          )
         end)
       end
     end)
@@ -292,11 +302,15 @@ end
 function PackUtils.setup_listener(name, build_cmd)
   name = PackUtils.get_name(name)
   -- 禁用的插件不注册监听
-  if PackUtils.disabled_plugins[name] then return end
-  if not build_cmd then return end
+  if PackUtils.disabled_plugins[name] then
+    return
+  end
+  if not build_cmd then
+    return
+  end
 
-  vim.api.nvim_create_autocmd('PackChanged', {
-    pattern = '*',
+  vim.api.nvim_create_autocmd("PackChanged", {
+    pattern = "*",
     callback = function(ev)
       -- 仅在目标插件发生安装或更新时触发
       if ev.data.spec.name == name and (ev.data.kind == "update" or ev.data.kind == "install") then
@@ -304,7 +318,7 @@ function PackUtils.setup_listener(name, build_cmd)
         os.remove(stamp) -- 删除构建完成标记，强制重新构建
         PackUtils.run_build(name, build_cmd)
       end
-    end
+    end,
   })
 end
 
@@ -312,8 +326,12 @@ end
 -- 检查插件是否已完成构建，如果缺少 .build_done 标记文件则触发构建
 function PackUtils.check_health(name, build_cmd)
   name = PackUtils.get_name(name)
-  if PackUtils.disabled_plugins[name] then return end
-  if not build_cmd then return end
+  if PackUtils.disabled_plugins[name] then
+    return
+  end
+  if not build_cmd then
+    return
+  end
 
   local path = PackUtils.get_root(name)
   if path then
@@ -336,7 +354,9 @@ function PackUtils.load(P, config_fn)
   local call_id = (info.short_src or "unknown") .. ":" .. (info.currentline or 0)
 
   -- 精准拦截：如果这一行代码已经成功执行过，直接跳过
-  if PackUtils.is_initialized[call_id] then return end
+  if PackUtils.is_initialized[call_id] then
+    return
+  end
 
   -- 规范化插件名和依赖名
   P.name = PackUtils.get_name(P.name)
@@ -347,10 +367,14 @@ function PackUtils.load(P, config_fn)
   end
 
   -- 如果插件在禁用名单中，直接返回不加载
-  if PackUtils.disabled_plugins[P.name] then return end
+  if PackUtils.disabled_plugins[P.name] then
+    return
+  end
 
   -- 磁盘中找不到插件目录，说明它正在异步克隆下载中，静默退出
-  if not PackUtils.get_root(P.name) then return end
+  if not PackUtils.get_root(P.name) then
+    return
+  end
 
   -- === 插件级操作：整个生命周期只需做一次的动作 ===
   if not PackUtils.plugin_loaded[P.name] then

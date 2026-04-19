@@ -23,12 +23,14 @@ vim.opt.listchars = { -- 不可见字符的显示样式
   trail = '·', -- 行尾多余空格显示为 ·
   nbsp = '␣' -- 不间断空格显示为 ␣
 }
--- 状态栏与命令行
-vim.opt.laststatus = 3   -- 完全隐藏状态栏
--- vim.opt.showmode = false -- 不显示 --INSERT-- 等模式提示
--- vim.opt.showcmd = false  -- 不显示正在输入的命令（解决 jk 闪烁）
+-- 让全局默认边框变成rounded或single
+vim.o.winborder = 'rounded'
+-- 状态栏与命令行 lualine 接管
+-- vim.opt.laststatus = 0   -- 完全隐藏状态栏
+-- vim.opt.showmode = false -- --INSERT-- 等模式提示
+-- vim.opt.showcmd = true   -- 正在输入的命令
 -- vim.opt.cmdheight = 1    -- 命令行高度为0，彻底隐藏底部那行
--- vim.opt.ruler = false    -- 不显示光标位置信息
+-- vim.opt.ruler = true -- 光标位置信息
 
 -- 行为与交互
 vim.opt.confirm = true                 -- 退出前确认未保存修改
@@ -48,11 +50,12 @@ vim.opt.jumpoptions = "view"           -- 跳转时保留视图位置
 
 
 -- 缩进与格式
-vim.opt.expandtab = true   -- 使用空格替代制表符
-vim.opt.shiftwidth = 2     -- 自动缩进宽度为2空格
-vim.opt.tabstop = 2        -- 制表符显示宽度为2空格
-vim.opt.shiftround = true  -- 缩进时按shiftwidth的倍数取整
-vim.opt.smartindent = true -- 智能自动缩进（适用于类C语言）
+vim.opt.expandtab = true   -- 按 Tab 时插入空格而非制表符
+vim.opt.shiftwidth = 2     -- 自动缩进宽度为 2 空格
+vim.opt.tabstop = 2        -- 制表符显示宽度为 2 空格
+vim.opt.softtabstop = 2    -- 按 Tab/Backspace 时移动 2 个空格
+vim.opt.shiftround = true  -- 缩进时按 shiftwidth 的倍数取整
+vim.opt.smartindent = true -- 智能自动缩进（适用于类 C 语言）
 -- formatoptions 必须用 autocmd，否则被 ftplugin 覆盖
 vim.api.nvim_create_autocmd("FileType", {
   callback = function()
@@ -76,7 +79,15 @@ vim.opt.grepprg = "rg --vimgrep"   -- 设置grep程序为ripgrep（更快）
 vim.opt.grepformat = "%f:%l:%c:%m" -- ripgrep输出格式解析
 
 -- 语言与拼写
-vim.opt.spelllang = { "en", "cjk" } -- 拼写检查语言：英文和中文（忽略中文）
--- vim.cmd.colorscheme("catppuccin")
+vim.opt.spelllang = { "en", "cjk" }    -- 拼写检查语言：英文和中文（忽略中文）
 -- 大文件大小限制设置
 vim.g.bigfile_size = 1024 * 1024 * 1.5 -- 1.5 MB，超过此大小视为大文件（用于禁用某些功能）
+-- 设置编码格式
+vim.o.fileencodings = 'utf-8,gb2312,gb18030,gbk,ucs-bom,cp936,latin1'
+vim.o.enc = 'utf8'
+
+-- 默认
+vim.cmd.colorscheme("catppuccin")
+
+-- 打开文件时进入上次编辑的位置
+vim.cmd([[au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif]])

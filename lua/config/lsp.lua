@@ -38,7 +38,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
     -- [LSP 快捷键映射]
     -- 格式化代码快捷键: <leader>cf
-    vim.keymap.set("n", "<leader>cf", vim.lsp.buf.format, { desc = '格式化文档'} )
+    vim.keymap.set("n", "<leader>cf", vim.lsp.buf.format, { desc = '格式化文档' })
 
     -- 跳转到定义: gd
     -- 使用自定义函数，如果没有找到定义则显示通知
@@ -160,4 +160,3 @@ vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, { desc = '跳转到实现'
 vim.keymap.set('n', 'gr', vim.lsp.buf.references, { desc = '查找引用' })
 vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, { desc = '重命名符号' })
 vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, { desc = '代码操作' })
-

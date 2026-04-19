@@ -72,25 +72,6 @@ map("n", "]q", vim.cmd.cnext, { desc = "下个快速修复项" })
 -- 位置列表导航
 map("n", "[l", vim.cmd.lprev, { desc = "上个位置列表项" })
 map("n", "]l", vim.cmd.lnext, { desc = "下个位置列表项" })
-
--- 诊断导航 跳转
-local diagnostic_goto = function(next, severity)
-  return function()
-    vim.diagnostic.jump({
-      count = (next and 1 or -1) * vim.v.count1,
-      severity = severity and vim.diagnostic.severity[severity] or nil,
-      float = true,
-    })
-  end
-end
-map("n", "<leader>cd", vim.diagnostic.open_float, { desc = "显示光标诊断" })
-map("n", "]d", diagnostic_goto(true), { desc = "下个诊断" })
-map("n", "[d", diagnostic_goto(false), { desc = "上个诊断" })
-map("n", "]e", diagnostic_goto(true, "ERROR"), { desc = "下个错误" })
-map("n", "[e", diagnostic_goto(false, "ERROR"), { desc = "上个错误" })
-map("n", "]w", diagnostic_goto(true, "WARN"), { desc = "下个警告" })
-map("n", "[w", diagnostic_goto(false, "WARN"), { desc = "上个警告" })
-
 -- 退出所有
 map("n", "<leader>qq", "<cmd>qa<cr>", { desc = "退出所有" })
 
