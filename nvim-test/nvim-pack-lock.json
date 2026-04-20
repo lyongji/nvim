@@ -88,9 +88,17 @@
       "rev": "9e9378d6ee34bb3782e0e8c63d9ec8ca618b479b",
       "src": "https://github.com/sphamba/smear-cursor.nvim"
     },
+    "snacks.nvim": {
+      "rev": "ad9ede6a9cddf16cedbd31b8932d6dcdee9b716e",
+      "src": "https://github.com/folke/snacks.nvim"
+    },
     "tiny-inline-diagnostic.nvim": {
       "rev": "b3b91e086795c036ecfe70429b72b26bcb302c91",
       "src": "https://github.com/rachartier/tiny-inline-diagnostic.nvim"
+    },
+    "tv.nvim": {
+      "rev": "b6611fa96f1b5e7a1f01d31db944b87058f03146",
+      "src": "https://github.com/alexpasmantier/tv.nvim"
     },
     "which-key.nvim": {
       "rev": "3aab2147e74890957785941f0c1ad87d0a44c15a",

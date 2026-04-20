@@ -1,6 +1,7 @@
 --[[
-     winget install BurntSushi.ripgrep.MSVC
      winget search ripgrep
+     依赖：需要安装 television 二进制
+     winget install alexpasmantier.television
 --]]
 ----------------------
 -- 通用 Neovim 设置 --
