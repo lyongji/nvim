@@ -16,7 +16,7 @@ vim.api.nvim_create_autocmd({ "InsertEnter", "CmdlineEnter", "LspAttach" }, {
       require("blink.cmp").setup({
         fuzzy = { -- 下载预编译的Fuzzy以节省空间
           prebuilt_binaries = {
-            force_version = 'v*',
+            force_version = 'v1.*',
           },
         },
         cmdline = {

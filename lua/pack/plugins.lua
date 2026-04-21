@@ -49,7 +49,7 @@ local specs = {
 	-- peek.lua 预览markdown
 	-- 'https://github.com/cap153/peek.nvim',
 	-- xmake.lua
-	{ src = "https://github.com/Mythos-404/xmake.nvim", name = "xmake" },
+	  "https://github.com/Mythos-404/xmake.nvim",
 	-- yazi.lua 文件管理器
 	"https://github.com/mikavilpas/yazi.nvim",
 	-- 查看可用键位

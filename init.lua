@@ -1,6 +1,7 @@
 --[[
-     winget install BurntSushi.ripgrep.MSVC
      winget search ripgrep
+     依赖：需要安装 television 二进制
+     winget install alexpasmantier.television
 --]]
 ----------------------
 -- 通用 Neovim 设置 --
@@ -8,25 +9,14 @@
 require("config.配置项")
 require("config.快捷键")
 require("config.预指令")
-require("config.lsp")
 ----------------------
 -- 插件管理（vim.pack） --
 ----------------------
--- 立即加载
-require("plugins.主题色")
-require("plugins.光标特效")
-require("plugins.标签栏美化")
-require("plugins.图标和环绕")
-require("plugins.snacks") -- 仪表盘
-require("plugins.文件管理yazi")
 
-require("plugins.whichkey") --快捷键提示
-require("plugins.剪贴板")
-require("plugins.内联诊断")
-require("plugins.补全")
-require("plugins.xmake") --读取缓存加载
+require("pack.plugins")
+
 ----------------------
--- LSP 配置 --
+-- lsp 配置 --
 ----------------------
 -- ./lsp/
 -- nvim 会在这个文件夹下查找你的lsp配置
@@ -35,4 +25,3 @@ require("plugins.xmake") --读取缓存加载
 -- 打开此 后缀名的文件 时，会自动加载执行这个文件.
 -- 可以用来配置特定文件类型的LSP
 -- 例如，配置lua的LSP
-

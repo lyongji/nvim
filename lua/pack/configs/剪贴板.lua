@@ -36,7 +36,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
       vim.fn.setreg("+", ev.regcontents, ev.regtype)
     end
     -- 高亮显示刚刚复制的文本，持续 500 毫秒
-    vim.highlight.on_yank({ timeout = 500 })
+    vim.hl.on_yank({ higroup = "IncSearch", timeout = 500 })
   end,
 })
 
