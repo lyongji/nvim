@@ -2,11 +2,13 @@
 -- 自动命令 --
 ----------------------
 -- 保存前自动格式化
-vim.api.nvim_create_autocmd('BufWritePre', {
-  callback = function()
-    vim.lsp.buf.format()
-  end,
-  pattern = '*',
-})
-
-
+-- vim.api.nvim_create_autocmd("BufWritePre", {
+-- 	callback = function()
+-- 		-- 如果当前 buffer 被标记为不自动格式化，则直接跳过
+-- 		if vim.b.autoformat == false then
+-- 			return
+-- 		end
+-- 		vim.lsp.buf.format()
+-- 	end,
+-- 	pattern = "*",
+-- })
