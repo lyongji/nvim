@@ -7,7 +7,7 @@
 -- ===
 -- === 终端
 -- ===
-local term = require("lua.tool.terminal")
+local term = require("tool.terminal")
 -- 创建用户命令
 vim.api.nvim_create_user_command('TermToggle', function()
   term.toggle_term()
