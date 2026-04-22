@@ -24,8 +24,6 @@ local specs = {
 	"https://github.com/rachartier/tiny-inline-diagnostic.nvim",
 	-- 代码格式化.lua 格式化工具formatter
 	"https://github.com/stevearc/conform.nvim",
-	-- 彩虹缩进.lua
-	"https://github.com/lukas-reineke/indent-blankline.nvim",
 	-- 代码折叠.lua 折叠插件
 	"https://github.com/kevinhwang91/nvim-ufo",
 	"https://github.com/kevinhwang91/promise-async", -- 异步执行
@@ -48,6 +46,8 @@ local specs = {
 	"https://github.com/alexpasmantier/tv.nvim",
 	-- peek.lua 预览markdown
 	-- 'https://github.com/cap153/peek.nvim',
+  -- 彩虹缩进.lua
+  "https://github.com/lukas-reineke/indent-blankline.nvim",
 	-- xmake.lua
 	  "https://github.com/Mythos-404/xmake.nvim",
 	-- yazi.lua 文件管理器

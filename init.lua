@@ -9,6 +9,7 @@
 require("config.配置项")
 require("config.快捷键")
 require("config.预指令")
+require("tool.init")
 ----------------------
 -- 插件管理（vim.pack） --
 ----------------------

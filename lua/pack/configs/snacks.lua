@@ -8,15 +8,7 @@ PackUtils.load(P, function()
 	require("snacks").setup({
 		-- 通知器配置
 		notifier = {}, -- 替代了folke/noice.nvim插件的rcarriga/nvim-notify依赖
-		terminal = {
-			win = {
-				style = "terminal",
-				size = { width = 0.8, height = 0.6 }, -- 浮动窗口尺寸
-				border = "rounded", -- 边框样式
-				title = "终端",
-			},
-			-- shell = "pwsh -NoLogo -NoProfile", -- 只在终端中用 pwsh
-		},
+
 		-- 选择器配置
 		picker = {
 			-- 匹配器设置：使用频率、当前目录和历史记录作为匹配依据
@@ -27,6 +19,7 @@ PackUtils.load(P, function()
 			win = {
 				input = {
 					keys = {
+
 						-- 注释掉的ESC关闭功能
 						-- ["<Esc>"] = { "close", mode = { "n", "i" } },
 						["<C-q>"] = { "close", mode = { "n", "i" } }, -- Ctrl+q 关闭功能
@@ -193,46 +186,3 @@ map("<leader>N", Snacks.notifier.hide, "通知历史记录")
 
 -- 图像显示
 map("<leader>ki", Snacks.image.hover, "悬停时显示图像")
-
--- 打开/切换终端
-map("<leader>tt", Snacks.terminal.open, "默认终端")
-
--- 根据屏幕大小动态调整
-local function get_floating_config()
-	local width = vim.api.nvim_get_option("columns")
-	local height = vim.api.nvim_get_option("lines")
-
-	return {
-		relative = "editor",
-		width = math.min(120, math.floor(width * 0.9)),
-		height = math.min(40, math.floor(height * 0.8)),
-		row = math.floor((height - 40) * 0.5),
-		col = math.floor((width - 120) * 0.5),
-		border = "single",
-		title = { { " 浮动终端 ", "Title" } },
-	}
-end
-
-vim.keymap.set("n", "<leader>tT", function()
-	-- 使用动态配置
-	Snacks.terminal("cmd", { win = get_floating_config() })
-end, { desc = "打开浮动终端" })
-
-vim.keymap.set("n", "<leader>tm", function()
-	-- 使用动态配置
-	Snacks.terminal("cmd", {
-		win = {
-			relative = "cursor",
-			width = 60,
-			height = 15,
-			row = 1, -- 光标下方
-			col = 0,
-			border = "single",
-			title = "快速执行",
-		},
-		auto_close = true,
-	})
-end, { desc = "打开快速终端" })
-
--- 终端内操作
-vim.keymap.set("t", "<C-q>", "<Cmd>stopinsert<CR>", { desc = "退出终端插入" })

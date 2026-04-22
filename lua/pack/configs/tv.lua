@@ -89,6 +89,7 @@ local function ensure_loaded()
 			},
 			-- quickfix 配置
 			quickfix = {
+
 				auto_open = true, -- Ctrl+q 发送后自动打开 quickfix 窗口
 			},
 		})
