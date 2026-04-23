@@ -69,3 +69,12 @@ map('n', '<leader>xC', qf.clear_loc,                              { desc = '清�
 -- ── LSP 诊断 ──
 map('n', '<leader>xd', function() qf.diag_qf('buffer') end,      { desc = '当前文件诊断' })
 map('n', '<leader>xD', function() qf.diag_qf('all') end,         { desc = '工作区诊断' })
+
+
+
+local sticky = require('tool.便签')
+
+-- 快捷键设置 (可自定义)
+vim.keymap.set('n', '<A-b>',function() sticky.toggle() end , { desc = '开关便签' })
+vim.keymap.set('n', '<A-B>',function()  sticky.switch() end , { desc = '便签切换' })
+
