@@ -45,33 +45,6 @@ map("x", "<", "<gv")
 map("x", ">", ">gv")
 
 
-
--- 切换位置列表
-map("n", "<leader>xl", function()
-  if vim.fn.getloclist(0, { winid = 0 }).winid ~= 0 then
-    vim.cmd.lclose()
-  else
-    local ok, err = pcall(vim.cmd.lopen)
-    if not ok then vim.notify(tostring(err), vim.log.levels.ERROR) end
-  end
-end, { desc = "位置列表" })
-
--- 切换快速修复列表
-map("n", "<leader>xq", function()
-  if vim.fn.getqflist({ winid = 0 }).winid ~= 0 then
-    vim.cmd.cclose()
-  else
-    local ok, err = pcall(vim.cmd.copen)
-    if not ok then vim.notify(tostring(err), vim.log.levels.ERROR) end
-  end
-end, { desc = "快速修复列表" })
-
--- 快速修复列表导航
-map("n", "[q", vim.cmd.cprev, { desc = "上个快速修复项" })
-map("n", "]q", vim.cmd.cnext, { desc = "下个快速修复项" })
--- 位置列表导航
-map("n", "[l", vim.cmd.lprev, { desc = "上个位置列表项" })
-map("n", "]l", vim.cmd.lnext, { desc = "下个位置列表项" })
 -- 退出所有
 map("n", "<leader>qq", "<cmd>qa<cr>", { desc = "退出所有" })
 

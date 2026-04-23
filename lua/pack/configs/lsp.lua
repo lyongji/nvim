@@ -48,6 +48,7 @@ local diagnostic_goto = function(next, severity)
     })
   end
 end
+-- 切换窗口焦点 可以进去复制
 map("n", "<leader>cd", vim.diagnostic.open_float, { desc = "显示光标诊断" })
 map("n", "]d", diagnostic_goto(true), { desc = "下个诊断" })
 map("n", "[d", diagnostic_goto(false), { desc = "上个诊断" })

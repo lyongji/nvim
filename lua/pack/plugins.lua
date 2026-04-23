@@ -20,8 +20,6 @@ local specs = {
 	"https://github.com/neovim/nvim-lspconfig",
 	"https://github.com/williamboman/mason-lspconfig.nvim",
 	"https://github.com/MysticalDevil/inlay-hints.nvim", -- 内联提示增强
-	-- 内联诊断
-	"https://github.com/rachartier/tiny-inline-diagnostic.nvim",
 	-- 代码格式化.lua 格式化工具formatter
 	"https://github.com/stevearc/conform.nvim",
 	-- 代码折叠.lua 折叠插件
@@ -57,7 +55,9 @@ local specs = {
 }
 -- 禁用插件：不会加载，不会下载(如果是新添加的)，已在硬盘上不会被删除
 local disabled = {
-	-- { src = 'https://github.com/saghen/blink.cmp', version = 'v1.10.2' }, -- 指定版本，暂时不想用，但想留着源码
+  -- { src = 'https://github.com/saghen/blink.cmp', version = 'v1.10.2' }, -- 指定版本，暂时不想用，但想留着源码
+  -- 内联诊断
+  "https://github.com/rachartier/tiny-inline-diagnostic.nvim",
 }
 -- ==============================================================
 -- 快捷管理命令
