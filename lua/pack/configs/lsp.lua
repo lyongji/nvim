@@ -8,7 +8,6 @@ local servers = {
   "lua_ls",
   "clangd",
   "pylsp",
-  "denols",
 }
 -- 如果不是 ARM 架构（即 x86_64），才安装这些额外 LSP
 if not is_arm then
