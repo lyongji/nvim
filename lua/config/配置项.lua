@@ -38,7 +38,7 @@ vim.opt.undofile = true -- 持久化撤销历史（保存到文件）
 vim.opt.undolevels = 1000000 -- 最大撤销历史记录数
 vim.opt.swapfile = false -- 你已经开启了 undofile = true，不需要 swap 文件。
 vim.opt.mouse = "a" -- 启用鼠标支持（所有模式）
-vim.opt.wrap = false -- 关闭自动换行，超出屏幕水平滚动
+vim.opt.wrap = true -- 关闭自动换行，超出屏幕水平滚动
 vim.opt.scrolloff = 4 -- 光标上下保留4行，保持视觉上下文
 vim.opt.sidescrolloff = 8 -- 光标左右保留8列，水平滚动时保持上下文
 vim.opt.winminwidth = 5 -- 窗口最小宽度（字符数）

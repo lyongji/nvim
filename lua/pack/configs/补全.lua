@@ -71,13 +71,18 @@ vim.api.nvim_create_autocmd({ "InsertEnter", "CmdlineEnter", "LspAttach" }, {
           nerd_font_variant = "mono",
         },
         sources = {
-          default = { "buffer", "lsp", "path", "snippets" },
+          default = { "buffer", "lsp", "path", "snippets", "pinyin" },
           -- 排序权重: buffer(5) > path(3) > lsp(2) > snippets(1)
           providers = {
-            buffer = { score_offset = 5 },
-            path = { score_offset = 3 },
-            lsp = { score_offset = 2 },
-            snippets = { score_offset = 1 },
+              pinyin = {
+                name = 'pinyin',
+                module = 'cmp_pinyin.blink',
+                score_offset = -3,
+              },
+              buffer = { score_offset = 5 },
+              path = { score_offset = 3 },
+              lsp = { score_offset = 2 },
+              snippets = { score_offset = 1 },
             -- cmdline = { -- 输入超过3个及以上字母才触发补全
             -- 	min_keyword_length = function(ctx)
             -- 		if ctx.mode == "cmdline" and string.find(ctx.line, " ") == nil then return 3 end
