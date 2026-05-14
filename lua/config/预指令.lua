@@ -12,3 +12,11 @@
 -- 	end,
 -- 	pattern = "*",
 -- })
+-- vim.treesitter.language.add('nim', { path = './parser/nim.dll' })
+vim.treesitter.language.register("nim", { "nim", "nimble", "nims" })
+vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
+	pattern = { "*.nim", "*.nimble", "*.nims" },
+	callback = function()
+		vim.treesitter.start(0, "nim")
+	end,
+})
