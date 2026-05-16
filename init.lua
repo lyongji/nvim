@@ -3,6 +3,13 @@
      依赖：需要安装 television 二进制
      winget install alexpasmantier.television
 --]]
+--UI2 g< 开启  :messages
+require('vim._core.ui2').enable(
+  {
+    enable=true,
+  }
+)
+
 ----------------------
 -- 通用 Neovim 设置 --
 ----------------------
@@ -13,9 +20,7 @@ require("tool.init")
 ----------------------
 -- 插件管理（vim.pack） --
 ----------------------
-
 require("pack.plugins")
-
 ----------------------
 -- lsp 配置 --
 ----------------------
