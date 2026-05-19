@@ -1,21 +1,14 @@
 -- 本地插件：拼音补全
-vim.opt.rtp:prepend("E:/code/pinyin_cmp")
 vim.schedule(function()
-  local ok, mod = pcall(require, 'cmp_pinyin')
+  local ok, mod = pcall(require, 'tool.cmp_pinyin')
   if not ok then
-    vim.notify('[cmp_pinyin] 模块加载失败: ' .. tostring(mod), vim.log.levels.ERROR)
+    vim.notify('[tool.cmp_pinyin] 模块加载失败: ' .. tostring(mod), vim.log.levels.ERROR)
     return
   end
   mod.setup({ notation = { '简拼', '全拼' } })
-  vim.notify('[cmp_pinyin] 已启动, CLI: ' .. mod.config.cli_path, vim.log.levels.INFO)
+  vim.notify('[tool.cmp_pinyin] 已启动, CLI: ' .. mod.config.cli_path, vim.log.levels.INFO)
 end)
 
--- nvim 的原生功能实现
--- require('lua.tool.缩进线').setup({
---   char = '┊',
---   scope_char = '│',
---   exclude_ft = { 'help', 'dashboard', 'lazy', 'mason' },
--- })
 -- ===
 -- === 终端
 -- ===

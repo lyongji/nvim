@@ -5,7 +5,7 @@
 
 local api = vim.api
 local fn = vim.fn
-local new_float = require('tool.window').new_float
+local new_float = require('tool.依赖.window').new_float
 
 ---@class FloatQF
 ---@field win FloatWin 浮动窗口实例

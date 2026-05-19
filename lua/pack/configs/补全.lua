@@ -76,7 +76,7 @@ vim.api.nvim_create_autocmd({ "InsertEnter", "CmdlineEnter", "LspAttach" }, {
           providers = {
               pinyin = {
                 name = 'pinyin',
-                module = 'cmp_pinyin.blink',
+                module = 'tool.cmp_pinyin.blink',
                 score_offset = -3,
               },
               buffer = { score_offset = 5 },

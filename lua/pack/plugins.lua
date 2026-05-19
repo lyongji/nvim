@@ -32,16 +32,11 @@ local specs = {
 	-- 代码大纲视图.lua 大纲、函数变量结构
 	"https://github.com/hedyhli/outline.nvim",
 	-- 弹窗.lua 取代消息、命令行和弹出菜单的 UI
-	"https://github.com/folke/noice.nvim",
-	"https://github.com/MunifTanjim/nui.nvim",
-	-- snacks.lua 图片预览、lazygit、lsp_references模糊查找
-	"https://github.com/folke/snacks.nvim",
+  'https://github.com/nvim-mini/mini.notify',
 	-- 环绕.lua 各种对字符的surround包裹{} [] ''
 	"https://github.com/nvim-mini/mini.surround",
 	-- 括号自动配对.lua 对字符自动补全另一半
 	"https://github.com/windwp/nvim-autopairs",
-	-- tv.lua 模糊查找television
-	"https://github.com/alexpasmantier/tv.nvim",
 	-- peek.lua 预览markdown
 	-- 'https://github.com/cap153/peek.nvim',
   -- 彩虹缩进.lua
@@ -50,6 +45,7 @@ local specs = {
 	  "https://github.com/Mythos-404/xmake.nvim",
 	-- yazi.lua 文件管理器
 	"https://github.com/mikavilpas/yazi.nvim",
+  "https://github.com/ibhagwan/fzf-lua",
 	-- 查看可用键位
 	"https://github.com/folke/which-key.nvim",
 }
@@ -58,6 +54,8 @@ local disabled = {
   -- { src = 'https://github.com/saghen/blink.cmp', version = 'v1.10.2' }, -- 指定版本，暂时不想用，但想留着源码
   -- 内联诊断
   "https://github.com/rachartier/tiny-inline-diagnostic.nvim",
+  -- snacks.lua 图片预览、lazygit、lsp_references模糊查找
+  "https://github.com/folke/snacks.nvim",
 }
 -- ==============================================================
 -- 快捷管理命令

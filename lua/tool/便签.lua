@@ -1,5 +1,5 @@
 -- 项目级便利贴模块 (极简稳健版)
-local float_win = require('tool.window')
+local float_win = require('tool.依赖.window')
 local api = vim.api
 local fn = vim.fn
 

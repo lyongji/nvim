@@ -1,7 +1,7 @@
 -- 浮动终端模块
 -- 功能：在浮动窗口中打开/关闭/切换终端，支持居中和侧边两种布局
 
-local win = require('tool.window')
+local win = require('tool.依赖.window')
 local api = vim.api
 
 --- 终端状态

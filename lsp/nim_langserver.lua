@@ -8,12 +8,13 @@ return {
 			nimsuggestPath = "C:\\Users\\yongji.luo\\.nimble\\pkgs2\\nim-2.2.10-17ec440fdb89f8903db29a17898af590087d2b64\\bin\\nimsuggest.exe",
 			inlayHints = {
 				-- 暂时关闭所有 inlay hints 功能以减少崩溃可能
-				typeHints = false,
-				parameterHints = false,
-				exceptionHints = false,
+				typeHints = true,
+				parameterHints = true,
+				exceptionHints = true,
 			},
+      nimsuggestTimeout = 300000000,
 			-- 禁用自动检查功能
-			useNimCheck = false,
+			useNimCheck = true,
 		},
 	},
 }
