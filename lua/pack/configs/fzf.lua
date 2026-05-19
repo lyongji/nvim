@@ -543,7 +543,7 @@ map("<leader>fR", function()
 end, "恢复上次搜索")
 
 map("<leader>fx", function()
-	fzf_lua.builtin()
+	fzf_lua.global()
 end, "全局选取器")
 
 -- ############################ 工具状态 ############################
